@@ -40,12 +40,12 @@ public class  Employee implements Comparable<Employee>{
         this.name = name;
     }
     public double raiseSalary(double byPercent){
-    	return this.salary=salary*3;
+    	return this.salary=salary*byPercent;
     			
 	}
     
-    public int compareTo(Employee otherEmployee) {
-    	  double salary= ((Employee) otherEmployee).salary; // same type object
+    public int compareTo(Employee Employee) {
+    	  double salary= ((Employee) Employee).salary; // same type object
     	  if (this.salary > salary)
     	   return 1;
     	  else if (this.salary< salary)
@@ -70,7 +70,7 @@ public static class Assignment2{
      * If the salary is more than 8900, the Social Security Tax is 6.2% of 106,800.
      * @param salary 
      */
-    public static double socialSecurityTax(Employee employee, double salary) {
+    public static void socialSecurityTax(Employee employee, double salary) {
 		
 
     	double SST;
@@ -83,7 +83,8 @@ public static class Assignment2{
     			SST=(6.2*106800/100);
     			System.out.println("Social Security tax is "+SST);
     		}
-		return SST;
+//		return SST;
+//		return SST;
 
 //    	return 0;
         //write your code here
@@ -95,29 +96,32 @@ public static class Assignment2{
      * If the employee is under 35, rate is 3% of salary; if the employee is between 35 and 50(inclusive), rate is 4% of salary;
      * If the employee is between 50 and 60(exclusive), rate is 5% of salary; If the employee is above 60, rate is 6% of salary.
      */
-    public static double insuranceCoverage(Employee employee , int age,double salary) {
+    public static void insuranceCoverage(Employee employee , int age,double salary) 
+    {
 		
     	double insurance = 0;
-    	if(age<35){
+    	if(age<35)
+    	{
     		insurance=3*salary/100;				
     		System.out.println("The insurance is "+insurance);
     	}
     	
-    	else if(age>35 && age<=50){
+    	else if(age>35 && age<=50)
+    	{
     		insurance=4*salary/100;
     		System.out.println("The insurance is "+insurance);
     		
     	}
-    	else if(age>50 && age<=60){
+    	else if(age>50 && age<60)
+    	{
     		insurance=5*salary/100;
     		System.out.println("The insurance is "+insurance);
     	}
-    	else if(age>60){
+    	else if(age>60)
+    	{
     		insurance=8*salary/100;
     		System.out.println("The insurance is "+insurance);
-    }
-    	return insurance;
-    	
+        }	
     }
     /**
      * Write a method to sort three employees' salary from low to high, and then print their name in order.
@@ -125,21 +129,23 @@ public static class Assignment2{
      * John Alice Jenny
      */
     
-    public static void sortSalary(Employee e1, Employee e2, Employee e3) {
+    public static void sortSalary(Employee e1, Employee e2, Employee e3) 
+    {
     	
 
-    		List <Employee> employees = new ArrayList<Employee>();
-    	  employees.add(new Employee("John", 20, Gender.FEMALE, 100));
-    	  employees.add(new Employee("Jenny", 20, Gender.FEMALE, 11000));
-    	  employees.add(new Employee("Johny", 20, Gender.FEMALE, 1000));
+    	  List <Employee> employees = new ArrayList<Employee>();
+    	  employees.add(new Employee("Alice", 20, Gender.MALE, 1000));
+    	  employees.add(new Employee("John", 20, Gender.FEMALE, 500));
+    	  employees.add(new Employee("Jenny", 20, Gender.FEMALE, 1200)); 
+    	  System.out.println("Sort By Employee Salary");
+    	  Collections.sort(employees);
     	  
-    	System.out.println("----Sort By Employee Salary----");
-    	 Collections.sort(employees);
     	 
-    	 for (Employee e : employees) {
+    	 for (Employee e : employees) 
+    	 {
     		   System.out.println(" Name-> " + e.name
     		     + " Salary-> " + e.salary);
-    }
+         }
         		
     }
     
@@ -152,26 +158,27 @@ public static class Assignment2{
      * Try to add a new method in Employee class: public void raiseSalary(double byPercent)
      */
     
-    public static void tripleSalary(Employee employee) {
+    public static void tripleSalary(Employee employee) 
+    {
         
     	double triplesalary=employee.raiseSalary(3);
-    	System.out.println("Triple saalry is "+triplesalary);
+    	System.out.println("Triple salary is " +triplesalary);
     }
 
 
     /**
      * Write a method to determine whether a number is prime
      */
-    public static boolean isPrime(int n) {
-    	for(int i=2; i<=n/2; i++){
-			if(n % i == 0){
-//				
-				System.out.println(false);
-				return false;
+    public static void isPrime(int n) 
+    {
+    	for(int i=2; i<=n/2; i++)
+    	{
+			if(n % i == 0)
+			{			
+				System.out.println("The  number " +n+ " is NOT prime");
 			}
 		}
-		System.out.println(true);
-		return true;
+		System.out.println("The  number " +n+ " is prime");
     }
 		
 
@@ -180,23 +187,24 @@ public static class Assignment2{
      * result has only one digit. For example: Given n = 38, the process is
      * like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.
      */
-    public static int addDigits(int n) {
+    public static void addDigits(int n) 
+    {
 		
     	int sum = 0;
-        while (n > 9 ) {
+        while (n > 9 ) 
+        {
                      sum=0;
             while (n > 0) {
                 int rem;
                 rem = n % 10;
                 sum = sum + rem;
                 n = n / 10;
-            }
+          }
             n = sum;
-        }
+       }
 
-        System.out.println(sum);
+        System.out.println("The sum of the digits are " +sum);
     	
-    	return n;
      
     }
 
@@ -207,34 +215,31 @@ public static class Assignment2{
      * another prime factor 7. Note that 1 is typically treated as an ugly
      * number.
      */
-    public static boolean isUgly(int num) {
-		
-    	
-    	if(num==0) System.out.println(false);
-        if(num==1) System.out.println(true);
-//     
-        if(num%2==0){
+    public static void isUgly(int num) 
+       {
+		if(num==0) System.out.println("The  number " +num+ " is NOT ugly");
+        if(num==1) System.out.println("The  number " +num+ " is ugly");
+        
+        if(num%2==0)
+        {
             num=num/2;
-            return(isUgly(num));
         }
      
-        if(num%3==0){
-            num=num/3;
-            return(isUgly(num));
+        if(num%3==0)
+        {
+            num=num/3;  
         }
      
-        if(num%5==0){
+        if(num%5==0)
+        {
             num=num/5;
-            return(isUgly(num));
-//            return isUgly(num);
-            
         }
       
         else{ 
-        	System.out.println(false);
+        	System.out.println("The  number is NOT ugly");
         }
 		
-		return false;
+		
     }
 
     //Extra credit
@@ -250,16 +255,10 @@ public static class Assignment2{
      * Write your understanding of the reason and explain it.
      */
     /*
-    Java is pass by value at all times. That's the only mechanism for both primitives and objects.
-
-	The key is to know what's passed for objects. It's not the object itself; that lives out on the heap. It's the reference to that object that's passed by value.
-
-	You cannot modify a passed reference and return the new value to the caller, but you can modify the state of the object it refers to - if it's mutable and exposes appropriate methods for you to call.
-
-	The class swap with pointers, similar to what's possible with C, doesn't work because you can't change what the passed reference refers to and return the new values to the caller.
-    
-    http://stackoverflow.com/questions/11102878/swapping-function-java-pass-by-value-code-failed
-    
+     
+     Objects are not swapped because Java uses pass by value and not pass by reference. 
+     Thus any changes made in the one argument(a and b) not reflected in the other argument(x and y).
+       
     */
     public static void main(String[] args) {
         
@@ -267,13 +266,11 @@ public static class Assignment2{
     	Employee a = new Employee("Jenny", 20, Gender.FEMALE, 11000);
     	Employee b = new Employee("John", 30, Gender.MALE, 2500);
     	Employee c = new Employee("John", 30, Gender.MALE, 200);
-    	
         System.out.println("Before: a=" + a.getName());
         System.out.println("Before: b=" + b.getName());
         swap(a, b);
         System.out.println("After: a=" + a.getName());
-        System.out.println("After: b=" + b.getName());
-        
+        System.out.println("After: b=" + b.getName());    
         socialSecurityTax(a, a.salary);
         insuranceCoverage(a,a.age,a.salary);
         isPrime(3);
@@ -283,15 +280,31 @@ public static class Assignment2{
         addDigits(482);
         
     }
-    public static void swap(Employee x, Employee y) {
+    public static void swap(Employee x, Employee y) 
+    {
         Employee temp = x;
         x = y;
         y = temp;
     }
 }
-
-
 }
+
+Result:
+Before: a=Jenny
+Before: b=John
+After: a=Jenny
+After: b=John
+Social Security tax is 6621.6
+The insurance is 330.0
+The  number 3 is prime
+The  number is NOT ugly
+Triple salary is 33000.0
+Sort By Employee Salary
+ Name-> John Salary-> 500.0
+ Name-> Alice Salary-> 1000.0
+ Name-> Jenny Salary-> 1200.0
+The sum of the digits are 5
+
   
 
    
