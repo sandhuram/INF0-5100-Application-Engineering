@@ -1,11 +1,8 @@
 package sample;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
-import java.util.Scanner;
 
 /**
  * Created by Rose on 1/21/17.
@@ -16,78 +13,73 @@ import java.util.Scanner;
  * Please feel free to contact me for any questions.
  */
 
-public class  Employee implements Comparable<Employee>{
-	String name;
+   public class  Employee implements Comparable<Employee>
+   {
+    String name;
     int age;
     Gender gender;
-   double salary;// salary per month
+    double salary;// salary per month
 
-
-    public Employee(String name, int age, Gender gender, double salary)  {
+    public Employee(String name, int age, Gender gender, double salary)  
+    {
         this.name = name;
         this.age = age;
         this.gender = gender;
         this.salary = salary;
     }
-
-    
-    
-    public String getName() {
+    public String getName() 
+    {
         return name;
     }
 
-    public void setName(String name) {
+    public void setName(String name) 
+    {
         this.name = name;
     }
-    public double raiseSalary(double byPercent){
+    public double raiseSalary(double byPercent)
+    {
     	return this.salary=salary*byPercent;
     			
-	}
+    }
     
-    public int compareTo(Employee Employee) {
+    public int compareTo(Employee Employee) 
+    {
     	  double salary= ((Employee) Employee).salary; // same type object
     	  if (this.salary > salary)
-    	   return 1;
+    	  return 1;
     	  else if (this.salary< salary)
-    	   return -1;
+    	  return -1;
     	  else
-    	   return 0;
-    	 }
-    	 
-       
-
-enum Gender {
+    	  return 0;
+    }	 
+    enum Gender 
+    {
     MALE,
     FEMALE;
-}
-public static class Assignment2{
+    }
+
+    public static class Assignment2
+    {
 
     // Assignment
-
     /**
      * Write a method to calculate the Social Security Tax of an employee and print it.
      * If the salary is less than or equal to 8900, the Social Security Tax is 6.2% of the salary.
      * If the salary is more than 8900, the Social Security Tax is 6.2% of 106,800.
      * @param salary 
      */
-    public static void socialSecurityTax(Employee employee, double salary) {
-		
-
-    	double SST;
-		
-    	if (salary<=8900){
-    		SST=(6.2*salary/100);
+    public static void socialSecurityTax(Employee a) 
+    {
+    	double SST;	
+    	if (a.salary<=8900){
+    		SST=(6.2*a.salary/100);
     		System.out.println("Social Security tax is "+SST);
-    	}
-    		else {
+    }
+    		else 
+    {
     			SST=(6.2*106800/100);
     			System.out.println("Social Security tax is "+SST);
-    		}
-//		return SST;
-//		return SST;
-
-//    	return 0;
-        //write your code here
+    }
     }
 
     /**
@@ -96,30 +88,30 @@ public static class Assignment2{
      * If the employee is under 35, rate is 3% of salary; if the employee is between 35 and 50(inclusive), rate is 4% of salary;
      * If the employee is between 50 and 60(exclusive), rate is 5% of salary; If the employee is above 60, rate is 6% of salary.
      */
-    public static void insuranceCoverage(Employee employee , int age,double salary) 
+    public static void insuranceCoverage(Employee b) 
     {
 		
     	double insurance = 0;
-    	if(age<35)
+    	if(b.age<35)
     	{
-    		insurance=3*salary/100;				
+    		insurance=3*b.salary/100;				
     		System.out.println("The insurance is "+insurance);
     	}
     	
-    	else if(age>35 && age<=50)
+    	else if(b.age>35 && b.age<=50)
     	{
-    		insurance=4*salary/100;
+    		insurance=4*b.salary/100;
     		System.out.println("The insurance is "+insurance);
     		
     	}
-    	else if(age>50 && age<60)
+    	else if(b.age>50 && b.age<60)
     	{
-    		insurance=5*salary/100;
+    		insurance=5*b.salary/100;
     		System.out.println("The insurance is "+insurance);
     	}
-    	else if(age>60)
+    	else if(b.age>60)
     	{
-    		insurance=8*salary/100;
+    		insurance=8*b.salary/100;
     		System.out.println("The insurance is "+insurance);
         }	
     }
@@ -131,16 +123,12 @@ public static class Assignment2{
     
     public static void sortSalary(Employee e1, Employee e2, Employee e3) 
     {
-    	
-
     	  List <Employee> employees = new ArrayList<Employee>();
     	  employees.add(new Employee("Alice", 20, Gender.MALE, 1000));
     	  employees.add(new Employee("John", 20, Gender.FEMALE, 500));
-    	  employees.add(new Employee("Jenny", 20, Gender.FEMALE, 1200)); 
+    	  employees.add(new Employee("Jenny", 20, Gender.FEMALE, 1200));     	  
     	  System.out.println("Sort By Employee Salary");
-    	  Collections.sort(employees);
-    	  
-    	 
+    	  Collections.sort(employees); 
     	 for (Employee e : employees) 
     	 {
     		   System.out.println(" Name-> " + e.name
@@ -148,9 +136,7 @@ public static class Assignment2{
          }
         		
     }
-    
-   
-    
+
     /**
      * Write a method to raise an employee's salary to three times of his/her original salary.
      * Eg: original salary was 1000/month. After using this method, the salary is 3000/month.
@@ -159,8 +145,7 @@ public static class Assignment2{
      */
     
     public static void tripleSalary(Employee employee) 
-    {
-        
+    {        
     	double triplesalary=employee.raiseSalary(3);
     	System.out.println("Triple salary is " +triplesalary);
     }
@@ -177,7 +162,7 @@ public static class Assignment2{
 			{			
 				System.out.println("The  number " +n+ " is NOT prime");
 			}
-		}
+	}
 		System.out.println("The  number " +n+ " is prime");
     }
 		
@@ -194,19 +179,17 @@ public static class Assignment2{
         while (n > 9 ) 
         {
                      sum=0;
-            while (n > 0) {
+            while (n > 0) 
+            {
                 int rem;
                 rem = n % 10;
                 sum = sum + rem;
                 n = n / 10;
-          }
+            }
             n = sum;
-       }
-
+        }
         System.out.println("The sum of the digits are " +sum);
-    	
-     
-    }
+     }
 
     /**
      * Write a program to check whether a given number is an ugly number. Ugly
@@ -216,7 +199,7 @@ public static class Assignment2{
      * number.
      */
     public static void isUgly(int num) 
-       {
+     {
 		if(num==0) System.out.println("The  number " +num+ " is NOT ugly");
         if(num==1) System.out.println("The  number " +num+ " is ugly");
         
@@ -235,12 +218,11 @@ public static class Assignment2{
             num=num/5;
         }
       
-        else{ 
+        else
+        { 
         	System.out.println("The  number is NOT ugly");
-        }
-		
-		
-    }
+        }		
+     }
 
     //Extra credit
 
@@ -260,9 +242,9 @@ public static class Assignment2{
      Thus any changes made in the one argument(a and b) not reflected in the other argument(x and y).
        
     */
-    public static void main(String[] args) {
-        
-    	
+    public static void main(String[] args) 
+    {
+       
     	Employee a = new Employee("Jenny", 20, Gender.FEMALE, 11000);
     	Employee b = new Employee("John", 30, Gender.MALE, 2500);
     	Employee c = new Employee("John", 30, Gender.MALE, 200);
@@ -271,11 +253,11 @@ public static class Assignment2{
         swap(a, b);
         System.out.println("After: a=" + a.getName());
         System.out.println("After: b=" + b.getName());    
-        socialSecurityTax(a, a.salary);
-        insuranceCoverage(a,a.age,a.salary);
-        isPrime(3);
+        socialSecurityTax(a);
+        insuranceCoverage(b);
+        isPrime(5);
         isUgly(14);
-        tripleSalary(a);
+        tripleSalary(c);
         sortSalary(a, b, c);
         addDigits(482);
         
@@ -288,27 +270,4 @@ public static class Assignment2{
     }
 }
 }
-
-Result:
-Before: a=Jenny
-Before: b=John
-After: a=Jenny
-After: b=John
-Social Security tax is 6621.6
-The insurance is 330.0
-The  number 3 is prime
-The  number is NOT ugly
-Triple salary is 33000.0
-Sort By Employee Salary
- Name-> John Salary-> 500.0
- Name-> Alice Salary-> 1000.0
- Name-> Jenny Salary-> 1200.0
-The sum of the digits are 5
-
-  
-
-   
-       
-
-
 
