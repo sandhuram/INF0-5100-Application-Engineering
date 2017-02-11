@@ -1,3 +1,7 @@
+/*
+score: 9 + 1(extra credit)
+comments: good job! consider more about corner cases
+*/
 package sample;
 
 import java.util.ArrayList;
@@ -68,7 +72,7 @@ import java.util.List;
      * If the salary is more than 8900, the Social Security Tax is 6.2% of 106,800.
      * @param salary 
      */
-    public static void socialSecurityTax(Employee a) 
+    public static void socialSecurityTax(Employee a)                                //correct
     {
     	double SST;	
     	if (a.salary<=8900){
@@ -88,7 +92,7 @@ import java.util.List;
      * If the employee is under 35, rate is 3% of salary; if the employee is between 35 and 50(inclusive), rate is 4% of salary;
      * If the employee is between 50 and 60(exclusive), rate is 5% of salary; If the employee is above 60, rate is 6% of salary.
      */
-    public static void insuranceCoverage(Employee b) 
+    public static void insuranceCoverage(Employee b)                           //correct
     {
 		
     	double insurance = 0;
@@ -121,7 +125,7 @@ import java.util.List;
      * John Alice Jenny
      */
     
-    public static void sortSalary(Employee e1, Employee e2, Employee e3) 
+    public static void sortSalary(Employee e1, Employee e2, Employee e3)                
     {
     	  List <Employee> employees = new ArrayList<Employee>();
     	  employees.add(new Employee("Alice", 20, Gender.MALE, 1000));
@@ -144,7 +148,7 @@ import java.util.List;
      * Try to add a new method in Employee class: public void raiseSalary(double byPercent)
      */
     
-    public static void tripleSalary(Employee employee) 
+    public static void tripleSalary(Employee employee)                   //correct
     {        
     	double triplesalary=employee.raiseSalary(3);
     	System.out.println("Triple salary is " +triplesalary);
@@ -154,7 +158,7 @@ import java.util.List;
     /**
      * Write a method to determine whether a number is prime
      */
-    public static void isPrime(int n) 
+    public static void isPrime(int n)                                                  //correct
     {
     	for(int i=2; i<=n/2; i++)
     	{
@@ -172,7 +176,7 @@ import java.util.List;
      * result has only one digit. For example: Given n = 38, the process is
      * like: 3 + 8 = 11, 1 + 1 = 2. Since 2 has only one digit, return it.
      */
-    public static void addDigits(int n) 
+    public static void addDigits(int n)                                    //miss one corner case: if n is a one-digit number, your return is 0, but you should return n 
     {
 		
     	int sum = 0;
@@ -198,7 +202,7 @@ import java.util.List;
      * another prime factor 7. Note that 1 is typically treated as an ugly
      * number.
      */
-    public static void isUgly(int num) 
+    public static void isUgly(int num)                                        //miss one case:if num is -5, your program print out nothing
      {
 		if(num==0) System.out.println("The  number " +num+ " is NOT ugly");
         if(num==1) System.out.println("The  number " +num+ " is ugly");
@@ -237,7 +241,7 @@ import java.util.List;
      * Write your understanding of the reason and explain it.
      */
     /*
-     
+     //correct
      Objects are not swapped because Java uses pass by value and not pass by reference. 
      Thus any changes made in the one argument(a and b) not reflected in the other argument(x and y).
        
