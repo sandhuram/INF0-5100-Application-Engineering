@@ -1,3 +1,6 @@
+/* score: 8 + 0(extra credit)
+comments: if you have any questions or not understand the requirements, come to me on campus
+*/
 package sample;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -16,7 +19,7 @@ public class Assignment2 {
      *  Given an array, reverse the elements within this array and print the result
      *  eg, given{1,2,3,4}, print{4,3,2,1}
      */
-    public static void reverseArray(int[] inArray) {
+    public static void reverseArray(int[] inArray) {                    //correct
     	System.out.println("Program 1 - Reverse Arrays output is:");
         System.out.println("Array Before Reverse : "+Arrays.toString(inArray));   
         int temp;	         
@@ -37,7 +40,7 @@ public class Assignment2 {
      *  eg, given {1,2,9}, reutrn{1,3,0}.
      * @return 
      */
-    public static int[] plusOne(int[] digits) {
+    public static int[] plusOne(int[] digits) {              //correct
     	 
     	 int carry = 1;
          int[] result = new int[digits.length];
@@ -59,7 +62,7 @@ public class Assignment2 {
      *  Write a program that takes an integer as input and returns all the primes between 1 and that integer(inclusive).
      *  eg, input is 18, you should return{2,3,5,7,11,13,17}
      */
-    public static void generatePrimes(int n) {
+    public static void generatePrimes(int n) {               //your print result always include 1. But 1 is not a prime
     		
                 System.out.println("Generate Prime numbers between 1 and " + n);
                 for (int i = 1; i<n; i++) {
@@ -95,7 +98,7 @@ public class Assignment2 {
      *  hint: the comparison is case sensitive and whitespace is significant
      * @return 
      */
-    public static boolean isPermutation(String s1, String s2) {
+    public static boolean isPermutation(String s1, String s2) {           //correct
     	HashMap<Character, Integer> map = new HashMap<Character, Integer>();
     	int count =1;
     	    if(s1.length()!=s2.length())
@@ -138,7 +141,7 @@ public class Assignment2 {
      * @return 
      */
     
-		public static String encoding(String str) {
+		public static String encoding(String str) {            //correct
 		    	  int count = 1;
 		          StringBuilder builder = new StringBuilder();
 		
@@ -176,7 +179,7 @@ public class Assignment2 {
 		      }
 		
 
-		    public static void decoding(String str) {
+		    public static void decoding(String str) {         //wrong
 		        StringBuilder sb = new StringBuilder();
 		        int repeat = 0;
 		        for (char c : str.toCharArray()) {
@@ -205,7 +208,7 @@ public class Assignment2 {
      *                    7,8,9           9 6 3
      *tip: image could be a square or a rectangle.
      */
-    public static void rotate(int[][] matrix) {
+    public static void rotate(int[][] matrix) {             //wrong: array index out of bound
 
     	 {
     		 transpose(matrix);
