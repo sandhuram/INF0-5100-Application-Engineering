@@ -1,0 +1,8 @@
+reverse: correct
+generateString: correct
+singleNumber: correct
+twoSum: correct
+getRow: one place wrong(-3). The question require you to return the kth row of the Pascal's triangle, instead of printing out all the kth row of the Pascal triangle.
+
+
+score: 30 + 7
