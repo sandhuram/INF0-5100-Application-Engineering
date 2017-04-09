@@ -1,0 +1,109 @@
+package Assignment10;
+
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.FlowLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.*;
+
+public class TwoNumbersCalculator extends BaseFrame {
+
+	private static final long serialVersionUID = 1L;
+	private JLabel fir, sec, res;
+	private JButton calculateButton;
+	private JTextField num1, num2;
+	private JTextField output;
+	private JRadioButton add;
+	private JRadioButton sub;
+	private JRadioButton mul;
+	private JRadioButton div;
+
+	@Override
+	public void createComponents() {
+
+		fir = new JLabel("First Number");
+		sec = new JLabel("Second Number");
+		res = new JLabel("Result");
+		output = new JTextField(10);
+
+		calculateButton = new JButton("Calculate");
+
+		num1 = new JTextField(10);
+		num2 = new JTextField(10);
+
+		add = new JRadioButton("+");
+		sub = new JRadioButton("-");
+		mul = new JRadioButton("*");
+		div = new JRadioButton("/");
+	}
+
+	@Override
+	public void addComponents() {
+		Container c = getContentPane();
+
+		c.add(fir);
+		c.add(num1);
+		c.add(sec);
+		c.add(num2);
+		c.add(res);
+		c.add(output);
+
+		c.add(calculateButton);
+
+		ButtonGroup bg = new ButtonGroup();
+		JPanel panel = new JPanel(new BorderLayout());
+		panel.add(add, BorderLayout.NORTH);
+		panel.add(sub, BorderLayout.LINE_START);
+		panel.add(mul, BorderLayout.LINE_END);
+		panel.add(div, BorderLayout.SOUTH);
+		bg.add(add);
+		bg.add(sub);
+		bg.add(mul);
+		bg.add(div);
+		c.add(panel);
+
+	}
+
+	@Override
+	public void createLayout() {
+		Container container = this.getContentPane();
+		FlowLayout flowlay = new FlowLayout();
+		container.setLayout(flowlay);
+	}
+
+	class CalcBehavior implements ActionListener {
+
+		public double calc(JTextField f, JTextField s) {
+			double number1 = Double.parseDouble(f.getText()), number2 = Double.parseDouble(s.getText());
+			double end_result = 0;
+			if (add.isSelected()) {
+				end_result = number1 + number2;
+			} else if (sub.isSelected()) {
+				end_result = number1 - number2;
+			} else if (mul.isSelected()) {
+				end_result = number1 * number2;
+			} else {
+				end_result = number1 / number2;
+			}
+			return end_result;
+		}
+
+		@Override
+		public void actionPerformed(ActionEvent e) {
+			output.setText(calc(num1, num2) + " ");
+		}
+
+	}
+
+	public void addListeners() {
+		CalcBehavior behavior = new CalcBehavior();
+		calculateButton.addActionListener(behavior);
+	}
+
+	public static void main(String args[]) {
+		new TwoNumbersCalculator();
+	}
+
+}
